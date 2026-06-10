@@ -1,0 +1,38 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:SatelliteTracker2D.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+        x:Class="SatelliteTracker2D.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Title="SatelliteTracker2D"
+        Width="1920"
+        Height="1080"
+        Background="#0a0a1a">
+
+    <Grid>
+        <Border Width="480"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Stretch"
+                Background="#111122"/>
+
+        <Canvas Width="1440"
+                Height="720"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center">
+
+            <Image Source="/Assets/World_map.jpg"
+                   Width="1440"
+                   Height="720"
+                   Stretch="Fill"/>
+
+            <Image x:Name="IssIcon"
+                   Source="/Assets/Iss1.png"
+                   Width="65"
+                   Height="40"
+                   Canvas.Left="0"
+                   Canvas.Top="0"/>
+        </Canvas>
+    </Grid>
+</Window>
