@@ -9,30 +9,117 @@
         Title="SatelliteTracker2D"
         Width="1920"
         Height="1080"
+        Margin="0"
         Background="#0a0a1a">
 
-    <Grid>
-        <Border Width="480"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Stretch"
-                Background="#111122"/>
+    <Viewbox Stretch="Fill">
+        <Grid Width="1920" Height="1080">
+            
+            <Border Width="480"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Stretch"
+                    Background="#111122">
+                
+                <Border Width="450"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Background="White"
+                        CornerRadius="12">
 
-        <Canvas Width="1440"
-                Height="720"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center">
+                    <StackPanel>
 
-            <Image Source="/Assets/World_map.jpg"
-                   Width="1440"
-                   Height="720"
-                   Stretch="Fill"/>
+                        <TextBlock Text="ISS"
+                                   FontSize="32"
+                                   Foreground="Black"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"
+                                   Margin="0,20,0,12"/>
 
-            <Image x:Name="IssIcon"
-                   Source="/Assets/Iss1.png"
-                   Width="65"
-                   Height="40"
-                   Canvas.Left="0"
-                   Canvas.Top="0"/>
-        </Canvas>
-    </Grid>
+                        <TextBlock Text="Longitude: 0"
+                                   FontSize="24"
+                                   Foreground="Black"
+                                   Margin="35,6,0,0"/>
+
+                        <TextBlock Text="Latitude: 0"
+                                   FontSize="24"
+                                   Foreground="Black"
+                                   Margin="35,6,0,0"/>
+
+                        <TextBlock Text="Speed: 0 km/s"
+                                   FontSize="24"
+                                   Foreground="Black"
+                                   Margin="35,6,0,16"/>
+
+                        <Border Height="1"
+                                Background="Black"
+                                Margin="0"/>
+
+                        <TextBlock Text="Predicted satellite position in"
+                                   FontSize="18"
+                                   Foreground="Black"
+                                   Margin="35,16,0,8"/>
+
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="35,0,0,16">
+                            
+                            <TextBox Width="60"
+                                     Height="32"
+                                     Text="10"
+                                     Foreground="LightGray"
+                                     BorderBrush="Black"
+                                     BorderThickness="1"
+                                     CornerRadius="6"
+                                     HorizontalContentAlignment="Center"
+                                     VerticalContentAlignment="Center"/>
+
+                            <TextBlock Text="minutes"
+                                       FontSize="18"
+                                       Foreground="Black"
+                                       VerticalAlignment="Center"
+                                       Margin="8,0,12,0"/>
+                            
+                            <Button Content="Calculate"
+                                    Width="145"
+                                    Height="32"
+                                    FontSize="14"
+                                    Foreground="White"
+                                    Background="#1D232F"
+                                    CornerRadius="6"
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center"/>
+
+                        </StackPanel>
+
+                        <Image Source="/Assets/Iss_icon.jpeg"
+                               Width="380"
+                               Height="300"
+                               Stretch="UniformToFill"
+                               Margin="35,0,35,35"
+                               ClipToBounds="True"
+                               />
+
+                    </StackPanel>
+                </Border>
+            </Border>
+            
+            <Canvas Width="1440"
+                    Height="720"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center">
+
+                <Image Source="/Assets/World_map.jpg"
+                       Width="1440"
+                       Height="720"
+                       Stretch="Fill"/>
+
+                <Image x:Name="IssIcon"
+                       Source="/Assets/Iss1.png"
+                       Width="65"
+                       Height="40"
+                       Canvas.Left="0"
+                       Canvas.Top="0"/>
+            </Canvas>
+
+        </Grid>
+    </Viewbox>
 </Window>
