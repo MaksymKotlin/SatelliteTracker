@@ -1,5 +1,13 @@
 # SatelliteTracker
 
+> **Educational Project** - is a real-time ISS (International Space Station) tracking application built with Avalonia UI and .NET 10. It uses the SGP4 orbital prediction model with TLE (Two-Line Element) data to calculate and display the current position of the ISS on an interactive 2D world map, updating every second.
+
+## Features
+- Real-time ISS tracking updated every second
+- SGP4 orbital prediction model via TLE data
+- TLE data auto-refreshes every hour for accuracy
+- 2D world map visualization
+
 ## Tech Stack
 
 | Area | Technology | Version |
