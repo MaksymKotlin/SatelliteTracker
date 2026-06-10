@@ -11,6 +11,7 @@
         Height="1080"
         Margin="0"
         Background="#0a0a1a">
+    
 
     <Viewbox Stretch="Fill">
         <Grid Width="1920" Height="1080">
