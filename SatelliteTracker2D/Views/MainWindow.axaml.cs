@@ -29,15 +29,19 @@ public partial class MainWindow : Window
 
         var vm = (MainWindowViewModel)sender!;
 
-        Dispatcher.UIThread.Post(() => UpdateIssPosition(vm.Latitude, vm.Longitude));
+        Dispatcher.UIThread.Post(() => UpdateIssPosition(vm.Latitude, vm.Longitude, vm.Speed));
     }
 
-    private void UpdateIssPosition(double latitude, double longitude)
+    private void UpdateIssPosition(double latitude, double longitude, double speed)
     {
         double x = (longitude + 180.0) / 360.0 * CanvasWidth - IconWidth / 2;
         double y = (90.0 - latitude) / 180.0 * CanvasHeight - IconHeight / 2;
 
         Canvas.SetLeft(IssIcon, x);
         Canvas.SetTop(IssIcon, y);
+
+        LongitudeText.Text = $"Longitude: {longitude:F4}°";
+        LatitudeText.Text  = $"Latitude: {latitude:F4}°";
+        SpeedText.Text     = $"Speed: {speed:F2} km/s";
     }
 }

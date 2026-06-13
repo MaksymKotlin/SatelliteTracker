@@ -18,6 +18,9 @@ public partial class MainWindowViewModel : ObservableObject
     [ObservableProperty]
     private double _longitude;
 
+    [ObservableProperty]
+    private double _speed;
+
     public MainWindowViewModel()
     {
         _timer.Elapsed += OnTimerElapsed;
@@ -39,7 +42,7 @@ public partial class MainWindowViewModel : ObservableObject
         string[] tleLines = await _tleService.GetTleLinesAsync();
         _issPredictor.LoadTle(tleLines);
 
-        (Latitude, Longitude) = _issPredictor.GetCurrentPosition();
+        (Latitude, Longitude, Speed) = _issPredictor.GetCurrentPosition();
 
         Console.WriteLine($"ISS → Lat: {Latitude:F4}°  Lon: {Longitude:F4}°");
     }

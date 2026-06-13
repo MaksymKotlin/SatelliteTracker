@@ -11,16 +11,16 @@
         Height="1080"
         Margin="0"
         Background="#0a0a1a">
-    
+
 
     <Viewbox Stretch="Fill">
         <Grid Width="1920" Height="1080">
-            
+
             <Border Width="480"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Stretch"
                     Background="#111122">
-                
+
                 <Border Width="450"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
@@ -36,17 +36,17 @@
                                    HorizontalAlignment="Center"
                                    Margin="0,20,0,12"/>
 
-                        <TextBlock Text="Longitude: 0"
+                        <TextBlock x:Name="LongitudeText"
                                    FontSize="24"
                                    Foreground="Black"
                                    Margin="35,6,0,0"/>
 
-                        <TextBlock Text="Latitude: 0"
+                        <TextBlock x:Name="LatitudeText"
                                    FontSize="24"
                                    Foreground="Black"
                                    Margin="35,6,0,0"/>
 
-                        <TextBlock Text="Speed: 0 km/s"
+                        <TextBlock x:Name="SpeedText"
                                    FontSize="24"
                                    Foreground="Black"
                                    Margin="35,6,0,16"/>
@@ -62,7 +62,7 @@
 
                         <StackPanel Orientation="Horizontal"
                                     Margin="35,0,0,16">
-                            
+
                             <TextBox Width="60"
                                      Height="32"
                                      Text="10"
@@ -78,7 +78,7 @@
                                        Foreground="Black"
                                        VerticalAlignment="Center"
                                        Margin="8,0,12,0"/>
-                            
+
                             <Button Content="Calculate"
                                     Width="145"
                                     Height="32"
@@ -102,7 +102,7 @@
                     </StackPanel>
                 </Border>
             </Border>
-            
+
             <Canvas Width="1440"
                     Height="720"
                     HorizontalAlignment="Right"
