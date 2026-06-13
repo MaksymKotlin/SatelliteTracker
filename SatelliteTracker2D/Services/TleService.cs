@@ -20,13 +20,13 @@ public class TleService
     {
         if (_cachedLines.Length > 0 && (DateTime.UtcNow - _lastFetch).TotalHours < 1)
             return _cachedLines;
-        
+
         await _semaphore.WaitAsync();
         try
         {
-            if (_cachedLines.Length > 0 && (DateTime.UtcNow - _lastFetch).TotalHours < 1) 
+            if (_cachedLines.Length > 0 && (DateTime.UtcNow - _lastFetch).TotalHours < 1)
                 return _cachedLines;
-            
+
             string response = await HttpClient.GetStringAsync(TleUrl);
             using JsonDocument doc = JsonDocument.Parse(response);
             JsonElement root = doc.RootElement;
@@ -52,6 +52,7 @@ public class TleService
         {
             _semaphore.Release();
         }
+
         return _cachedLines;
     }
 }

@@ -1,0 +1,42 @@
+root = true
+
+# Rules for all files
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Rules for C# files
+[*.cs]
+indent_style = space
+indent_size = 4
+
+# Sort 'using System' directives first
+dotnet_sort_system_directives_first = true
+
+# Add blank line between using directive groups
+dotnet_separate_import_directive_groups = true
+
+# Opening brace always on a new line
+csharp_new_line_before_open_brace = all
+
+# 'else', 'catch', 'finally' always on a new line
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true
+
+# No space after cast operator
+csharp_space_after_cast = false
+
+# Space before and after colon in inheritance
+csharp_space_before_colon_in_inheritance_clause = true
+csharp_space_after_colon_in_inheritance_clause = true
+
+# Warn if curly braces are missing in if/for/while
+csharp_prefer_braces = true:warning
+
+# Rules for Avalonia markup files
+[*.axaml]
+indent_style = space
+indent_size = 4
