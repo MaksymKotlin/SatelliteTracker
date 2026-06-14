@@ -109,6 +109,8 @@
                                     Height="40"
                                     FontSize="24"
                                     CornerRadius="6"
+                                    Foreground="White"
+                                    Background="#1D232F"
                                     HorizontalAlignment="Stretch"
                                     HorizontalContentAlignment="Center"
                                     VerticalContentAlignment="Center" />
