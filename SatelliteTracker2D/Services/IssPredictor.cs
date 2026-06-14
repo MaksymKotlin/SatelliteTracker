@@ -13,19 +13,17 @@ public class IssPredictor
         _satellite = new Satellite(tleLines[0], tleLines[1], tleLines[2]);
     }
 
-    public (double Latitude, double Longitude, double Speed) GetCurrentPosition()
+    public (double Latitude, double Longitude, double Speed) GetCurrentPosition(double minutes)
     {
         if (_satellite == null)
             throw new InvalidOperationException("TLE not loaded yet.");
 
-        var eci = _satellite.Predict(DateTime.UtcNow);
+        var eci = _satellite.Predict(DateTime.UtcNow.AddMinutes(minutes));
         var geo = eci.ToGeodetic();
         double speed = Math.Sqrt(
             eci.Velocity.X * eci.Velocity.X +
             eci.Velocity.Y * eci.Velocity.Y +
             eci.Velocity.Z * eci.Velocity.Z);
-
-
 
         return (geo.Latitude.Degrees, geo.Longitude.Degrees, speed);
     }

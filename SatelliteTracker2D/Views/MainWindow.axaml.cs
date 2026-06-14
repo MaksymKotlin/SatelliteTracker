@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using Avalonia.Controls;
 using Avalonia.Threading;
+using Avalonia.Interactivity;
 using SatelliteTracker2D.ViewModels;
 
 namespace SatelliteTracker2D.Views;
@@ -18,8 +19,9 @@ public partial class MainWindow : Window
 
         var vm = new MainWindowViewModel();
         DataContext = vm;
-
+        PredictButton.Click += OnPredictClick;
         vm.PropertyChanged += OnViewModelPropertyChanged;
+        ResetButton.Click += (_, _) => _isPredicting = false;
     }
 
     private void OnViewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
@@ -32,8 +34,27 @@ public partial class MainWindow : Window
         Dispatcher.UIThread.Post(() => UpdateIssPosition(vm.Latitude, vm.Longitude, vm.Speed));
     }
 
+    private bool _isPredicting = false;
+    private double _predictMinutes = 0;
+
+    private void OnPredictClick(object? sender, RoutedEventArgs e)
+    {
+        if (!double.TryParse(MinutesInput.Text, out double minutes))
+            return;
+
+        _predictMinutes = minutes;
+        _isPredicting = true;
+    }
+
     private void UpdateIssPosition(double latitude, double longitude, double speed)
     {
+        var vm = (MainWindowViewModel)DataContext!;
+
+        if (_isPredicting)
+        {
+            (latitude, longitude, speed) = vm.GetPredictedPosition(_predictMinutes);
+        }
+
         double x = (longitude + 180.0) / 360.0 * CanvasWidth - IconWidth / 2;
         double y = (90.0 - latitude) / 180.0 * CanvasHeight - IconHeight / 2;
 

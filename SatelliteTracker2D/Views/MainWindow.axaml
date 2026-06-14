@@ -12,7 +12,6 @@
         Margin="0"
         Background="#0a0a1a">
 
-
     <Viewbox Stretch="Fill">
         <Grid Width="1920" Height="1080">
 
@@ -22,86 +21,110 @@
                     Background="#111122">
 
                 <Border Width="450"
+                        Height="720"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Background="White"
                         CornerRadius="12">
 
-                    <StackPanel>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
 
-                        <TextBlock Text="ISS"
-                                   FontSize="32"
-                                   Foreground="Black"
-                                   FontWeight="Bold"
-                                   HorizontalAlignment="Center"
-                                   Margin="0,20,0,12" />
+                        <StackPanel Grid.Row="0">
 
-                        <TextBlock x:Name="LongitudeText"
-                                   Text="Longitude: --"
-                                   FontSize="24"
-                                   Foreground="Black"
-                                   Margin="35,6,0,0" />
-
-                        <TextBlock x:Name="LatitudeText"
-                                   Text="Latitude: --"
-                                   FontSize="24"
-                                   Foreground="Black"
-                                   Margin="35,6,0,0" />
-
-                        <TextBlock x:Name="SpeedText"
-                                   Text="Speed: -- km/s"
-                                   FontSize="24"
-                                   Foreground="Black"
-                                   Margin="35,6,0,16" />
-
-                        <Border Height="1"
-                                Background="Black"
-                                Margin="0" />
-
-                        <TextBlock Text="Predicted satellite position in"
-                                   FontSize="18"
-                                   Foreground="Black"
-                                   Margin="35,16,0,8" />
-
-                        <StackPanel Orientation="Horizontal"
-                                    Margin="35,0,0,16">
-
-                            <TextBox Width="60"
-                                     Height="32"
-                                     Text="10"
-                                     Foreground="LightGray"
-                                     BorderBrush="Black"
-                                     BorderThickness="1"
-                                     CornerRadius="6"
-                                     HorizontalContentAlignment="Center"
-                                     VerticalContentAlignment="Center" />
-
-                            <TextBlock Text="minutes"
-                                       FontSize="18"
+                            <TextBlock Text="ISS"
+                                       FontSize="32"
                                        Foreground="Black"
-                                       VerticalAlignment="Center"
-                                       Margin="8,0,12,0" />
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,20,0,12" />
 
-                            <Button Content="Calculate"
-                                    Width="145"
-                                    Height="32"
-                                    FontSize="14"
-                                    Foreground="White"
-                                    Background="#1D232F"
+                            <TextBlock x:Name="LongitudeText"
+                                       Text="Longitude: --"
+                                       FontSize="24"
+                                       Foreground="Black"
+                                       Margin="35,6,0,0" />
+
+                            <TextBlock x:Name="LatitudeText"
+                                       Text="Latitude: --"
+                                       FontSize="24"
+                                       Foreground="Black"
+                                       Margin="35,6,0,0" />
+
+                            <TextBlock x:Name="SpeedText"
+                                       Text="Speed: -- km/s"
+                                       FontSize="24"
+                                       Foreground="Black"
+                                       Margin="35,6,0,16" />
+
+                            <Border Height="1"
+                                    Background="Black"
+                                    Margin="0" />
+
+                            <TextBlock Text="Predicted satellite position in"
+                                       FontSize="24"
+                                       Foreground="Black"
+                                       Margin="35,20,0,12" />
+
+                            <StackPanel Orientation="Horizontal"
+                                        Margin="35,0,0,12">
+
+                                <TextBox x:Name="MinutesInput"
+                                         Width="60"
+                                         Height="40"
+                                         FontSize="24"
+                                         Text="10"
+                                         Foreground="LightGray"
+                                         BorderBrush="Black"
+                                         BorderThickness="1"
+                                         CornerRadius="6"
+                                         HorizontalContentAlignment="Center"
+                                         VerticalContentAlignment="Center" />
+
+                                <TextBlock Text="minutes"
+                                           FontSize="24"
+                                           Foreground="Black"
+                                           VerticalAlignment="Center"
+                                           Margin="8,0,12,0" />
+
+                                <Button x:Name="PredictButton"
+                                        Content="Calculate"
+                                        Width="145"
+                                        Height="40"
+                                        FontSize="24"
+                                        Foreground="White"
+                                        Background="#1D232F"
+                                        CornerRadius="6"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center" />
+
+                            </StackPanel>
+
+                            <Button x:Name="ResetButton"
+                                    Content="Back to Live"
+                                    Margin="35,0,35,20"
+                                    Height="40"
+                                    FontSize="24"
                                     CornerRadius="6"
+                                    HorizontalAlignment="Stretch"
                                     HorizontalContentAlignment="Center"
                                     VerticalContentAlignment="Center" />
 
                         </StackPanel>
-
-                        <Image Source="/Assets/Iss_icon.jpeg"
-                               Width="380"
-                               Height="300"
-                               Stretch="UniformToFill"
-                               Margin="35,0,35,35"
-                               ClipToBounds="True" />
-
-                    </StackPanel>
+                        <Border Grid.Row="1"
+                                Width="380"
+                                CornerRadius="12"
+                                ClipToBounds="True"
+                                VerticalAlignment="Bottom"
+                                Margin="35,0,35,35">
+                            <Image Source="/Assets/Iss_icon.jpeg"
+                                   Height="300"
+                                   Stretch="UniformToFill" />
+                        </Border>
+                    </Grid>
                 </Border>
             </Border>
 
@@ -110,10 +133,15 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center">
 
-                <Image Source="/Assets/World_map.jpg"
-                       Width="1440"
-                       Height="720"
-                       Stretch="Fill" />
+                <Border Width="1440"
+                        Height="720"
+                        CornerRadius="16"
+                        ClipToBounds="True">
+                    <Image Source="/Assets/World_map.jpg"
+                           Width="1440"
+                           Height="720"
+                           Stretch="Fill" />
+                </Border>
 
                 <Image x:Name="IssIcon"
                        Source="/Assets/Iss1.png"

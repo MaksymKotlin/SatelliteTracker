@@ -44,7 +44,7 @@ public partial class MainWindowViewModel : ObservableObject
             string[] tleLines = await _tleService.GetTleLinesAsync();
             _issPredictor.LoadTle(tleLines);
 
-            (Latitude, Longitude, Speed) = _issPredictor.GetCurrentPosition();
+            (Latitude, Longitude, Speed) = _issPredictor.GetCurrentPosition(0);
         }
         catch
         {
@@ -56,4 +56,7 @@ public partial class MainWindowViewModel : ObservableObject
 
         Console.WriteLine($"ISS → Lat: {Latitude:F4}°  Lon: {Longitude:F4}°");
     }
+
+    public (double Latitude, double Longitude, double Speed) GetPredictedPosition(double minutes)
+        => _issPredictor.GetCurrentPosition(minutes);
 }
