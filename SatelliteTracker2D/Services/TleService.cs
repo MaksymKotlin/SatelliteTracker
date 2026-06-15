@@ -8,7 +8,7 @@ namespace SatelliteTracker2D.Services;
 
 public class TleService
 {
-    private const string TleUrl = "https://api.wheretheiss.at/v1/satellites/25544/tles";
+    private const string TleUrl = "https://tle.ivanstanojevic.me/api/tle/25544";
     private static readonly HttpClient HttpClient = new();
     private readonly SemaphoreSlim _semaphore = new(1, 1);
 
