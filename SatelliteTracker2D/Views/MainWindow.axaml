@@ -99,7 +99,15 @@
                                         Background="#1D232F"
                                         CornerRadius="6"
                                         HorizontalContentAlignment="Center"
-                                        VerticalContentAlignment="Center" />
+                                        VerticalContentAlignment="Center">
+
+                                            <Button.Styles>
+                                                <Style Selector="Button:pointerover /template/ ContentPresenter">
+                                                    <Setter Property="Background" Value="#7d8491" />
+                                                    <Setter Property="TextBlock.Foreground" Value="White" />
+                                                </Style>
+                                            </Button.Styles>
+                                </Button>
 
                             </StackPanel>
 
@@ -113,7 +121,16 @@
                                     Background="#1D232F"
                                     HorizontalAlignment="Stretch"
                                     HorizontalContentAlignment="Center"
-                                    VerticalContentAlignment="Center" />
+                                    VerticalContentAlignment="Center">
+
+                                        <Button.Styles>
+                                            <Style Selector="Button:pointerover /template/ ContentPresenter">
+                                                <Setter Property="Background" Value="#7d8491" />
+                                                <Setter Property="TextBlock.Foreground" Value="White" />
+                                            </Style>
+                                        </Button.Styles>
+                            </Button>
+
 
                         </StackPanel>
                         <Border Grid.Row="1"
